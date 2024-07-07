@@ -1,105 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My From-Scratch Projects</title>
-    <meta
-      name="description"
-      content="Things that I created from scratch to understand internals and satisfy my curiosity."
-    />
-    <meta
-      name="keywords"
-      content="programming, Go, Golang, C programming, from scratch, coding concepts, computer science"
-    />
-    <meta name="author" content="Biraj" />
+    <meta name="description"
+        content="Things that I created from scratch to understand internals and satisfy my curiosity." />
+    <meta name="keywords"
+        content="programming, Go, Golang, C programming, from scratch, coding concepts, computer science" />
+    <meta name="author" content="Shoray2002" />
     <meta property="og:title" content="My From-Scratch Projects" />
-    <meta
-      property="og:description"
-      content="Things that I created from scratch to understand internals and satisfy my curiosity."
-    />
+    <meta property="og:description"
+        content="Things that I created from scratch to understand internals and satisfy my curiosity." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://biraj21.github.io/blogs/from-scratch.html" />
+    <meta property="og:url" content="https://Shoray2002.github.io/blogs/from-scratch.html" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="My From-Scratch Projects" />
-    <meta
-      name="twitter:description"
-      content="Things that I created from scratch to understand internals and satisfy my curiosity."
-    />
-    <link rel="canonical" href="https://biraj21.github.io/blogs/from-scratch.html" />
-
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="canonical" href="https://Shoray2002.github.io/blogs/from-scratch.html" />
 
     <style>
-      #from-scratch-list > li > label > input {
-        margin-right: 8px;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #from-scratch-list>li>label>input {
+            margin-right: 8px;
+        }
+
+        body {
+            max-width: 788px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        [role="paragraph"] {
+            margin: 16px 0;
+        }
+
+        .blog ul,
+        .blog ol {
+            margin: 8px 0 8px 16px;
+        }
+
+        .blog .blog__byline {
+            margin-top: -8px;
+        }
+
+        code,
+        .code-block {
+            background-color: #d3d3d3;
+            padding: 1px 2px;
+            border-radius: 2px;
+        }
+
+        .code-block {
+            display: block;
+            margin: 8px 0 16px;
+            padding: 8px;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            border-left: 8px solid #ccc;
+            margin: 16px 0;
+            padding: 8px;
+        }
+
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 3rem;
+            line-height: 0.1rem;
+            margin-right: 0.25rem;
+            vertical-align: bottom;
+        }
+
+        /* without this, subsequent <blockquote> elements were starting with only a single quote */
+        blockquote:after {
+            content: close-quote;
+            visibility: hidden;
+        }
+
+        hr {
+            margin: 24px 0;
+        }
+
+        .print-only {
+            display: none;
+        }
+
+        @media print {
+            .print-only {
+                display: block;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
     </style>
-  </head>
-  <body class="blog">
+</head>
+
+<body class="blog">
     <h1>my "from scratch" projects</h1>
 
     <p>
-      here are things i've learnt and built toy versions of. they're not production grade, just for my own learning.
+        here are things i've learnt and built toy versions of. they're not production grade, just for my own learning.
     </p>
 
     <ul id="from-scratch-list"></ul>
 
     <script>
-      const projects = [
-        { title: "TCP Server in C", done: false, github: "https://github.com/biraj21/tcp-server" },
-        { title: "HTTP Server in C", done: false, github: "https://github.com/biraj21/http-server-in-c" },
-        { title: "Linux containers in Go", done: false, github: "https://github.com/biraj21/focker" },
-        {
-          title: "WebSocket Server in Node.js",
-          done: false,
-          github: "https://github.com/biraj21/websocket-server-from-scratch",
-        },
-        { title: "NumPy in Go", done: false, github: "https://github.com/biraj21/neural-networks-from-scratch" },
-        { title: "JSON Parser in Go", done: false, github: "https://github.com/biraj21/json-parser" },
-        {
-          title: "Multer (multipart/form-data decoder) in Node.js",
-          done: false,
-          github: "https://github.com/biraj21/node-multipart-formdata-decoder",
-        },
-        { title: "An Express-like library in Node.js", done: false, github: "https://github.com/biraj21/queen-js" },
-        { title: "Nano-like text editor in C", done: false, github: "https://github.com/biraj21/texterm" },
-        { title: "Brainfuck interpreter in C", done: false, github: "https://github.com/biraj21/brainfuck-interpreter" },
-        { title: "A React-like library in JavaScript", done: false, github: "https://github.com/biraj21/" },
-        { title: "Redis in C (both client & server)", done: false, github: "https://github.com/biraj21/" },
-        {
-          title: "Neural Networks from Scratch in Go",
-          done: false,
-          github: "https://github.com/biraj21neural-networks-from-scratch/",
-        },
-        { title: "Load balancer in Go", done: false, github: "https://github.com/biraj21/" },
-        { title: "Web Crawler in Go", done: false, github: "https://github.com/biraj21/" },
-        { title: "SMTP Server in ??", done: false, github: "https://github.com/biraj21/" },
-        { title: "GZIP compression in ??", done: false, github: "https://github.com/biraj21/" },
-      ];
+        const projects = [
+            { title: "TCP Server in C", done: false, github: "" },
+            { title: "HTTP Server in C", done: false, github: "" },
+            { title: "Linux containers in Go", done: false, github: "" },
+            {
+                title: "WebSocket Server in Node.js",
+                done: false,
+                github: "",
+            },
+            { title: "NumPy in Go", done: false, github: "" },
+            { title: "JSON Parser in Go", done: false, github: "" },
+            {
+                title: "Multer (multipart/form-data decoder) in Node.js",
+                done: false,
+                github: "",
+            },
+            { title: "An Express-like library in Node.js", done: false, github: "" },
+            { title: "Nano-like text editor in C", done: false, github: "" },
+            { title: "Brainfuck interpreter in C", done: false, github: "" },
+            { title: "A React-like library in JavaScript", done: false, github: "" },
+            { title: "Redis in C (both client & server)", done: false, github: "" },
+            {
+                title: "Neural Networks from Scratch in Go",
+                done: false,
+                github: "",
+            },
+            { title: "Load balancer in Go", done: false, github: "" },
+            { title: "Web Crawler in Go", done: false, github: "" },
+            { title: "SMTP Server in ??", done: false, github: "" },
+            { title: "GZIP compression in ??", done: false, github: "" },
+        ];
 
-      const $list = document.getElementById("from-scratch-list");
+        const $list = document.getElementById("from-scratch-list");
 
-      projects.forEach((project) => {
-        const $li = document.createElement("li");
+        projects.forEach((project) => {
+            const $li = document.createElement("li");
 
-        const $label = document.createElement("label");
+            const $label = document.createElement("label");
 
-        const $input = document.createElement("input");
-        $input.type = "checkbox";
-        $input.checked = project.done;
+            const $input = document.createElement("input");
+            $input.type = "checkbox";
+            $input.checked = project.done;
 
-        $label.appendChild($input);
+            $label.appendChild($input);
 
-        const $a = document.createElement("a");
-        $a.href = project.github || "#";
-        $a.target = "_blank";
-        $a.appendChild(document.createTextNode(project.title));
-        $label.appendChild($a);
+            const $a = document.createElement("a");
+            $a.href = project.github || "#";
+            $a.target = "_blank";
+            $a.appendChild(document.createTextNode(project.title));
+            $label.appendChild($a);
 
-        $li.appendChild($label);
-        $list.appendChild($li);
-      });
+            $li.appendChild($label);
+            $list.appendChild($li);
+        });
     </script>
-  </body>
+</body>
+
 </html>
